@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>饮食记录</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🥗 饮食记录</h1>
+      <p class="subtitle">记录每一口，掌控健康</p>
+    </header>
+
+    <section class="stats-card">
+      <div class="stats-header">
+        <span>今日摄入</span>
+        <span class="date" id="todayDate"></span>
+      </div>
+      <div class="calories-summary">
+        <span class="calories-number" id="totalCalories">0</span>
+        <span class="calories-unit">kcal</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <div class="progress-labels">
+        <span>0</span>
+        <span>目标 2000 kcal</span>
+      </div>
+    </section>
+
+    <section class="add-form">
+      <h2>添加记录</h2>
+      <form id="mealForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="foodName">食物名称</label>
+            <input type="text" id="foodName" placeholder="例如：鸡胸肉沙拉" required>
+          </div>
+          <div class="form-group">
+            <label for="calories">热量 (kcal)</label>
+            <input type="number" id="calories" placeholder="250" min="0" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mealType">餐别</label>
+            <select id="mealType">
+              <option value="早餐">早餐</option>
+              <option value="午餐" selected>午餐</option>
+              <option value="晚餐">晚餐</option>
+              <option value="加餐">加餐</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mealTime">时间</label>
+            <input type="datetime-local" id="mealTime" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-add">添加记录</button>
+      </form>
+    </section>
+
+    <section class="records-section">
+      <div class="records-header">
+        <h2>饮食记录</h2>
+        <button class="btn-clear" id="clearAll">清空全部</button>
+      </div>
+      <div id="recordsList" class="records-list">
+        <div class="empty-state">还没有记录，开始添加吧！</div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
